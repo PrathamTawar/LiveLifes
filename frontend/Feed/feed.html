@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Feed</title>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <link rel="stylesheet" href="./feed.css">
+</head>
+<body>
+
+    <nav class="nav">
+        <div class="nav-logo">Social</div>
+        <div class="nav-menu">
+            <a href="#" class="nav-item active">
+                <i data-lucide="home"></i>
+                Feed
+            </a>
+            <a href="#" class="nav-item">
+                <i data-lucide="compass"></i>
+                Explore
+            </a>
+            <a href="#" class="nav-item">
+                <i data-lucide="message-square"></i>
+                Messages
+            </a>
+            <a href="#" class="nav-item">
+                <i data-lucide="user"></i>
+                Account
+            </a>
+        </div>
+    </nav>
+
+    <div class="feed"></div>
+
+</body>
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./feed.js" ></script>
+</html>
