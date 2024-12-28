@@ -69,8 +69,12 @@ function displayPosts(data)
                     Delete
                 </div>
             </div>
+            <div class="post-title">
+                ${post.content_text && !(post.content_img||post.content_vid) ? '' : post.caption}
+            </div>
+
             <div class="post-content">
-                ${post.content_text? post.content_text : post.caption}
+                ${post.content_text}
             </div>
 
 

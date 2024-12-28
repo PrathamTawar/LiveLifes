@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Feed</title>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <link rel="stylesheet" href="./addPost.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-logo">Social</div>
+        <div class="nav-menu">
+            <a href="/frontend/Feed/feed.html" class="nav-item">
+                <i data-lucide="home"></i>
+                Feed
+            </a>
+            <a href="/frontend/AddPost/addPost.html" class="nav-item active">
+                <i data-lucide="plus"></i>
+                Add
+            </a>
+            <a href="#" class="nav-item">
+                <i data-lucide="message-square"></i>
+                Messages
+            </a>
+            <a href="#" class="nav-item">
+                <i data-lucide="user"></i>
+                Account
+            </a>
+        </div>
+    </nav>
+
+    <div class="form-container">
+        <h1 class="page-title">Create New Post</h1>
+        <form class="form-card">
+            
+            <div class="form-group">
+                <label class="form-label">Caption</label>
+                <input type="text" name="caption" class="form-input" placeholder="Add a caption">
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Text (Optional)</label>
+                <textarea name="content_text" class="form-textarea" placeholder="What's on your mind?"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Upload Media</label>
+                <input type="file" name="file" class="file-upload" id="file-upload">
+                <label for="file-upload" class="file-upload-label">
+                    <i data-lucide="upload" class="upload-icon"></i>
+                    <div class="upload-text">
+                        Click to upload or drag and drop
+                        <small>Image or Video files only</small>
+                    </div>
+                    <small id="fileNameJS"></small>
+                </label>
+            </div>
+
+            <button type="submit" class="submit-button">Create Post</button>
+        </form>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./addPost.js"></script>
+</body>
+</html>

@@ -130,6 +130,14 @@ body {
     color: var(--gray-600);
 }
 
+.post-title
+{
+    font-size: 1.1rem;
+    text-transform: capitalize;
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+}
+
 .post-content {
     margin-bottom: var(--spacing-lg);
     line-height: 1.5;
