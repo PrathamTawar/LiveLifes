@@ -31,9 +31,9 @@ function timeCalc(date)
     const years = Math.floor(months / 12);
 
     // Return the appropriate "time ago" string
-    if (years > 0) return `${years} year${years > 1 ? 's' : ''} ago`;
-    if (months > 0) return `${months} month${months > 1 ? 's' : ''} ago`;
-    if (days > 0) return `${days} day${days > 1 ? 's' : ''} ago`;
+    if (years > 0) return `${years} year${years > 1 ? 's' : ''} ago•${inputDate.getDate()}/${inputDate.getMonth() + 1}/${inputDate.getFullYear()}`;
+    if (months > 0) return `${months} month${months > 1 ? 's' : ''} ago•${inputDate.getDate()}/${inputDate.getMonth() + 1}/${inputDate.getFullYear()}`;
+    if (days > 0) return `${days} day${days > 1 ? 's' : ''} ago•${inputDate.getDate()}/${inputDate.getMonth() + 1}/${inputDate.getFullYear()}`;
     if (hours > 0) return `${hours} hour${hours > 1 ? 's' : ''} ago`;
     if (minutes > 0) return `${minutes} minute${minutes > 1 ? 's' : ''} ago`;
 
