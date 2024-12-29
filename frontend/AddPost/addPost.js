@@ -8,50 +8,50 @@ fileInput.addEventListener('change', () => {
     document.querySelector('.file-upload-label').style.backgroundColor = 'var(--gray-100)';
 });
 
-function createPostJSON() 
+function createPostJSON(e) 
 {
-    let formData = new FormData(form);
+    let formData = new FormData();
 
-    let caption = formData.get('caption')
-    let text = formData.get('content_text')
-    let file = formData.get('file');
-    let fileType = file.type;
+    let caption = e.target[0].value;
+    let text = e.target[1].value;
+    let file = e.target[2].files[0];
+    let fileType = 0;
 
-    if (!caption && !text && file.size === 0) {
+    if(file){fileType = file.type;}
+    console.log(caption, text, file, formData);
+
+    if (!caption && !text && !file) {
         alert('Please fill the fields');
         return 0;
     }
     
-    if ((!caption && file.size > 0  && !text) || !caption && text && file.size > 0) {
+    if ((!caption && file  && !text) || !caption && text && file) {
         alert('Please add Caption');
         return 0;
     }
     
-    if (caption && file.size === 0 && !text) {
+    if (caption && !file && !text) {
         alert('Please add Image or Video or Text');
         return 0;
     }
     
-    if (text && file.size === 0) {
-        return {
-            caption: caption,
-            content_text: text
-        };
+    if (text && !file) {
+        formData.append('caption', caption);
+        formData.append('content_text', text); 
+        return formData;
     }
     
-    if (caption && file.size > 0) {
+    if (caption && file) {
         if (fileType.startsWith('image/')) {
-            return {
-                caption: caption,
-                content_text: text,
-                content_image: file
-            };
+            formData.append('caption', caption);
+            formData.append('content_text', text);
+            formData.append('content_image', file);
+            return formData;
         } else if (fileType.startsWith('video/')) {
-            return {
-                caption: caption,
-                content_text: text,
-                content_video: file
-            };
+            formData.append('caption', caption);
+            formData.append('content_text', text);
+            formData.append('content_video', file);
+            return formData;
         }
 
         alert('Please select an image or video file');
@@ -61,8 +61,7 @@ function createPostJSON()
 }
 
 
-async function addPost() {
-    let post = createPostJSON();
+async function addPost(post ={}) {
     if(!post)
     {
         return;
@@ -74,7 +73,7 @@ async function addPost() {
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    addPost();
+    addPost(createPostJSON(e));
 });
 
 

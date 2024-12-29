@@ -60,30 +60,28 @@ function displayPosts(data)
                 <i data-lucide="more-vertical"></i>
             </button>
             <div class="menu-content">
-                <div class="menu-item">
+                <div data-id=${post.id} class="menu-item edit">
                     <i data-lucide="edit"></i>
                     Edit
                 </div>
-                <div class="menu-item">
+                <div data-id=${post.id} class="menu-item delete">
                     <i data-lucide="trash-2"></i>
                     Delete
                 </div>
             </div>
             <div class="post-title">
-                ${post.content_text && !(post.content_img||post.content_vid) ? '' : post.caption}
+                ${post.caption}
             </div>
 
             <div class="post-content">
                 ${post.content_text}
             </div>
 
+            <img src="${url}${post.content_image}" alt="Sunset" class="post-image ${post.content_image? '' : 'none'}">
 
-
-            <img src="${url}${post.content_img}" alt="Sunset" class="post-image ${post.content_img? '' : 'none'}">
-
-            <div class="video-container ${post.content_vid? '' : 'none'}">
+            <div class="video-container ${post.content_video? '' : 'none'}">
                 <video controls autoplay loop muted>
-                    <source src="${url}${post.content_vid}" type="video/mp4">
+                    <source src="${url}${post.content_video}" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
 
@@ -111,6 +109,7 @@ function displayPosts(data)
     lucide.createIcons();
 
 
+    handleDelete(document.querySelectorAll('.delete'));
 
     document.querySelectorAll('.menu-btn').forEach(button => {
         button.addEventListener('click', (e) => {
@@ -135,6 +134,17 @@ function displayPosts(data)
         });
     });
 
+}
+
+
+function handleDelete(btns) {
+    btns.forEach(btn => {
+        btn.addEventListener('click', async (e) => {
+            const postId = e.target.getAttribute('data-id');
+            const res = await axios.delete(`${url}/deletePost/${postId}`);
+            // getPosts();
+        });
+    })
 }
 
 
