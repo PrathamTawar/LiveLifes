@@ -7,6 +7,9 @@ urlpatterns = [
     path('createPost', views.createPost, name='createPost'),
     path('updatePost/<int:pk>', views.updatePost, name='createPost'),
     path('deletePost/<int:pk>', views.deletePost, name='deletePost'),
+    path('users', views.getUser, name='signin'),
+    path('signin', views.signin, name='signin'),
+    path('signup', views.signup, name='signup'),
 ]
 
 from django.conf import settings

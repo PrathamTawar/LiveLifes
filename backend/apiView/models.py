@@ -8,3 +8,10 @@ class Posts(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     likes = models.IntegerField(default=0)
     
+class User(models.Model):
+    username = models.CharField(max_length=50)
+    join_date = models.DateTimeField(auto_now_add=True)
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    password = models.CharField(max_length=50)
+    profilePic = models.ImageField(upload_to='profilePics/', blank=True, use_url=True)

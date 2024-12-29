@@ -1,7 +1,8 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import Posts
-from .serializers import PostSerializer
+from django.contrib.auth.models import User
+from .serializers import PostSerializer, UserSerializer
 
 
 @api_view(['GET'])
@@ -41,3 +42,18 @@ def deletePost(request, pk):
     post = Posts.objects.get(pk=pk)
     post.delete()
     return Response({'message': 'Post deleted successfully!'})
+
+@api_view(['GET'])
+def getUser(request):
+    user = User.objects.all()
+    serializer = UserSerializer(user, many = True)
+    return Response(serializer.data)
+
+@api_view(['POST'])
+def signin(request):
+    return Response({'message': 'Signin'})
+
+
+@api_view(['POST'])
+def signup(request):
+    return Response({'message': 'Signup'})
