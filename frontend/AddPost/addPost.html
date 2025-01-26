@@ -6,6 +6,7 @@
     <title>Social Feed</title>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <link rel="stylesheet" href="./addPost.css">
+    <base href="/LiveLifes/">
 </head>
 <body>
     <nav class="nav">
@@ -33,6 +34,13 @@
             </a>
         </div>
     </nav>
+
+    <div class="noAccount">
+        <div class="noAccount-container">
+            <h1 class="noAccount-title">You need to be signed in to create a post</h1>
+            <a href="/frontend/SignIn/signIn.html" class="noAccount-button">Sign In</a>
+        </div>
+    </div>
 
     <div class="form-container">
         <h1 class="page-title">Create New Post</h1>

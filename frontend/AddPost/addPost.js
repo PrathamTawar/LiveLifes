@@ -2,15 +2,19 @@ const form = document.querySelector('.form-card');
 const fileInput = document.querySelector('#file-upload');
 const accountBtn = document.querySelector('.account');
 const signBtn = document.querySelector('.sign');
+const noAccount = document.querySelector('.noAccount');
+const formContainer = document.querySelector('.form-container');
 const url = 'http://127.0.0.1:8000';
 
 
 window.onload = () => {
     if(!localStorage.getItem('token')) {
         accountBtn.classList.add('none')
+        formContainer.classList.add('none')
     }
     else{
         signBtn.classList.add('none')
+        noAccount.classList.add('none')
     }
 };
 

@@ -6,6 +6,7 @@
     <title>Social</title>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <link rel="stylesheet" href="./account.css">
+    <base href="/LiveLifes/">
 </head>
 <body>
     <nav class="nav">
@@ -30,28 +31,66 @@
         </div>
     </nav>
 
-    <div class="auth-container">
-        <div class="auth-box">
-            <div class="auth-header">
-                <h1>LiveLifes</h1>
+    <div class="profile-container">
+        <div class="profile-header">
+            <img src="/api/placeholder/150/150" alt="Profile" class="profile-pic">
+            <div class="profile-info">
+                <div class="profile-name-section">
+                    <div class="profile-username-edit">
+                        <h2 class="username">johndoe</h2>
+                        <button class="edit-profile-btn">Edit Profile</button>
+                    </div>
+                    <div class="more-menu">
+                        <button class="more-options" id="moreOptions">
+                            <i data-lucide="more-horizontal"></i>
+                        </button>
+                        <div class="dropdown-menu" id="dropdownMenu">
+                            <div class="dropdown-item" id="settings">Settings</div>
+                            <div class="dropdown-item" id="signOut">Sign Out</div>
+                            <div class="dropdown-item" id="deleteAccount">Delete Account</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-stats">
+                    <div class="stat">6 <span>posts</span></div>
+                    <div class="stat">350 <span>followers</span></div>
+                    <div class="stat">230 <span>following</span></div>
+                </div>
+                <div class="profile-bio">
+                    John Doe
+                    🌐 Web Developer
+                    📸 Tech Enthusiast
+                    🚀 Creating digital experiences
+                </div>
             </div>
-            
-            <div class="auth-toggle">
-                <button class="toggle-btn active" onclick="toggleForm('signIn')">Sign In</button>
-                <button class="toggle-btn" onclick="toggleForm('signUp')">Create Account</button>
-                <div class="tab-indicator"></div>
-            </div>
+        </div>
 
-            <button id="signOut">Sign Out</button>
-            
-            
+        <div class="post-grid">
+            <div class="post-item"><img src="/api/placeholder/300/300" alt="Post 1"></div>
+            <div class="post-item"><img src="/api/placeholder/300/300" alt="Post 2"></div>
+            <div class="post-item"><img src="/api/placeholder/300/300" alt="Post 3"></div>
+            <div class="post-item"><img src="/api/placeholder/300/300" alt="Post 4"></div>
+            <div class="post-item"><img src="/api/placeholder/300/300" alt="Post 5"></div>
+            <div class="post-item"><img src="/api/placeholder/300/300" alt="Post 6"></div>
         </div>
     </div>
 
+    <div class="edit-modal" id="editModal">
+        <div class="edit-modal-content">
+            <input type="text" id="editUsername" placeholder="Username">
+            <textarea id="editBio" placeholder="Bio"></textarea>
+            <input type="file" id="editProfilePicInput" accept="image/*">
+            <div class="modal-buttons">
+                <button class="modal-btn modal-btn-save" id="saveProfileBtn">Save</button>
+                <button class="modal-btn modal-btn-cancel" id="cancelEditBtn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+</body>
     <script>
         lucide.createIcons();
     </script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./account.js"></script>
-</body>
 </html>
