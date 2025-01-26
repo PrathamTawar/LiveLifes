@@ -25,10 +25,10 @@ class signupView(APIView):
         profileInfo = {'profile_pic': profile_pic, 'full_name': full_name}
         
         if not username or not password:
-            return Response({"success": False, "message": "username, password and email are required"}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"success": False, "message": "username, password and email are required"})
         
         if User.objects.filter(username=username).exists() or email and User.objects.filter(email=email).exists():
-            return Response({"success": False, "message": "username already exists"}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"success": False, "message": "username already exists"})
         
         
         try:
@@ -44,9 +44,8 @@ class signupView(APIView):
             if profile_serializer.is_valid():
                 profile_serializer.save()
             else:
-                user.delete()  # Rollback user creation if profile creation fails
-                return Response({"success": False, "errors": profile_serializer.errors},
-                                status=status.HTTP_400_BAD_REQUEST)
+                user.delete()
+                return Response({"success": False, "errors": profile_serializer.errors})
 
             # Create or get the token
             token, created = Token.objects.get_or_create(user=user)

@@ -3,11 +3,14 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import Posts
 from .serializers import PostSerializer
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import AllowAny, IsAuthenticated
 
 
 class PostView(APIView):
-    permission_classes = [IsAuthenticated]
+    def get_permissions(self):
+        if self.request.method == 'GET':
+            return [AllowAny()]
+        return [IsAuthenticated()]
     def get(self, request, pk = None):
         if pk:
             data = PostSerializer(Posts.objects.get(pk=pk)).data
@@ -16,7 +19,8 @@ class PostView(APIView):
         return Response(data)
     
     def post(self, request):
-        serializer = PostSerializer(data = request.data)
+        user = request.user
+        serializer = PostSerializer(data = request.data, context={'user': user})
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)

@@ -1,25 +1,30 @@
 const feed = document.querySelector('.feed');
 const accountBtn = document.querySelector('.account');
 const signBtn = document.querySelector('.sign');
-const url = 'http://localhost:8000/api';
+const addPost = document.querySelector('.addPost');
+const url = 'http://127.0.0.1:8000';
+const nav = document.querySelector('.nav-menu');
 let allPosts = [];
 
 window.onload = () => {
-    if(!localStorage.getItem('token')) {
-        window.location.href = '../Account/account.html';
-        accountBtn.classList.add('none')
-    }
-    else{
-        signBtn.classList.add('none')
-    }
+    let token  = localStorage.getItem('token');
+
+    nav.innerHTML += `
+        <a href="${token? '/frontend/Account/account.html' : '/frontend/SignIn/signIn.html'}" class="nav-item account">
+                <i data-lucide="user"></i>
+                ${token? 'Account' : 'Signin/Signup'}
+        </a>
+    `
+    lucide.createIcons();
 };
 
 async function getPosts() 
 {
 
-    allPosts = await axios.get(`${url}/post/posts`);
+    allPosts = await axios.get(`${url}/api/post/`);
     allPosts = allPosts.data;
 
+    console.log(allPosts);
     displayPosts(allPosts.reverse());
 }
 
@@ -55,9 +60,9 @@ function displayPosts(data)
         feed.innerHTML += `
         <div class="post">
             <div class="post-header">
-                <img src="https://placehold.co/600x600" alt="Profile" class="profile-pic">
+                <img src="${post.owner.profile.profile_pic? url + post.owner.profile.profile_pic : '/frontend/assets/avatar.jpg'}" alt="Profile" class="profile-pic">
                 <div class="user-info">
-                    <div class="username">Jane Smith</div>
+                    <div class="username">${post.owner.username}</div>
                     <div class="timestamp">${date}</div>
                 </div>
             </div>
@@ -146,7 +151,7 @@ function handleDelete(btns) {
     btns.forEach(btn => {
         btn.addEventListener('click', async (e) => {
             const postId = e.target.getAttribute('data-id');
-            const res = await axios.delete(`${url}/post/posts/${postId}`);
+            const res = await axios.delete(`${url}/post/${postId}`);
             // getPosts();
         });
     })

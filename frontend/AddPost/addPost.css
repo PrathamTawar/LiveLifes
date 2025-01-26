@@ -192,3 +192,7 @@ body {
 .submit-button:hover {
     background-color: #1664d9;
 }
+
+.none{
+    display: none;
+}

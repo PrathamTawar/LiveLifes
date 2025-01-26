@@ -1,6 +1,18 @@
 const form = document.querySelector('.form-card');
 const fileInput = document.querySelector('#file-upload');
-const url = 'http://localhost:8000/api/post';
+const accountBtn = document.querySelector('.account');
+const signBtn = document.querySelector('.sign');
+const url = 'http://127.0.0.1:8000';
+
+
+window.onload = () => {
+    if(!localStorage.getItem('token')) {
+        accountBtn.classList.add('none')
+    }
+    else{
+        signBtn.classList.add('none')
+    }
+};
 
 fileInput.addEventListener('change', () => {
     const fileName = fileInput.files[0].name;
@@ -67,7 +79,8 @@ async function addPost(post ={}) {
         return;
     }
 
-    let res = await axios.post(`${url}/createPost`, post);
+    const token = localStorage.getItem('token');
+    let res = await axios.post(`${url}/api/post/`, post, {headers: {Authorization: `token ${token}`}});
     console.log(res);
 }
 
