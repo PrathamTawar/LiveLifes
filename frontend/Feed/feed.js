@@ -20,7 +20,7 @@ window.onload = () => {
     // !TO RUN ON PAGES
 
     nav.innerHTML += `
-        <a href="${token? '/LiveLifes/frontend/Account/account.html' : '/LiveLifes/frontend/SignIn/signIn.html'}" class="nav-item account">
+        <a href="${token? 'LiveLifes/frontend/Account/account.html' : 'LiveLifes/frontend/SignIn/signIn.html'}" class="nav-item account">
                 <i data-lucide="user"></i>
                 ${token? 'Account' : 'Signin/Signup'}
         </a>
