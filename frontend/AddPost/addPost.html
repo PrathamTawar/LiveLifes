@@ -6,12 +6,13 @@
     <title>Social Feed</title>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <link rel="stylesheet" href="./addPost.css">
-    <base href="/LiveLifes/">
 </head>
 <body>
     <nav class="nav">
         <div class="nav-logo">Social</div>
-        <div class="nav-menu">
+
+        <!-- ! TO RUN LOCALLY -->
+        <!-- <div class="nav-menu">
             <a href="/frontend/Feed/feed.html" class="nav-item">
                 <i data-lucide="home"></i>
                 Feed
@@ -31,6 +32,26 @@
             <a  href="/frontend/SignIn/signIn.html" class="nav-item sign">
                 <i data-lucide="user"></i>
                 Signin/Signup
+            </a>
+        </div> -->
+
+        <!-- ! TO RUN ON PAGES -->
+        <div class="nav-menu">
+            <a href="/LiveLifes/frontend/Feed/feed.html" class="nav-item">
+                <i data-lucide="home"></i>
+                <span>Feed</span>
+            </a>
+            <a href="/LiveLifes/frontend/AddPost/addPost.html" class="nav-item">
+                <i data-lucide="plus"></i>
+                <span>Add</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i data-lucide="message-square"></i>
+                <span>Messages</span>
+            </a>
+            <a href="/LiveLifes/frontend/Account/account.html" class="nav-item active">
+                <i data-lucide="user"></i>
+                <span>Account</span>
             </a>
         </div>
     </nav>
