@@ -2,7 +2,8 @@ const feed = document.querySelector('.feed');
 const accountBtn = document.querySelector('.account');
 const signBtn = document.querySelector('.sign');
 const addPost = document.querySelector('.addPost');
-const url = 'http://127.0.0.1:8000';
+// const url = 'http://127.0.0.1:8000';
+const url = 'https://prathamtawar.pythonanywhere.com';
 const nav = document.querySelector('.nav-menu');
 let allPosts = [];
 

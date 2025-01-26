@@ -1,7 +1,9 @@
 const signInForm = document.querySelector("#signIn");
 const signUpForm = document.querySelector("#signUp");
 const errorBox = document.querySelector(".errorBox");
-const url = "http://127.0.0.1:8000/api";
+// const url = "http://127.0.0.1:8000/api";
+// const url = 'http://127.0.0.1:8000';
+const url = 'https://prathamtawar.pythonanywhere.com/api';
 // !TO RUN LOCALLY
 // const successUrl = "http://127.0.0.1:5500/frontend/Feed/feed.html"
 // !TO RUN ON PAGES

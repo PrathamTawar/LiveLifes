@@ -11,7 +11,8 @@ const bioDisplay = document.querySelector('.profile-bio');
 const signOut = document.querySelector("#signOut");
 const postGird = document.querySelector(".post-grid");
 
-const url = "http://127.0.0.1:8000";
+// const url = 'http://127.0.0.1:8000';
+const url = 'https://prathamtawar.pythonanywhere.com';
 
 signOut.addEventListener("click", async () => {
   localStorage.removeItem("token");
