@@ -9,12 +9,23 @@ let allPosts = [];
 window.onload = () => {
     let token  = localStorage.getItem('token');
 
+    // !TO RUN LOCALLY
+    // nav.innerHTML += `
+    //     <a href="${token? '/frontend/Account/account.html' : '/frontend/SignIn/signIn.html'}" class="nav-item account">
+    //             <i data-lucide="user"></i>
+    //             ${token? 'Account' : 'Signin/Signup'}
+    //     </a>
+    // `
+
+    // !TO RUN ON PAGES
+
     nav.innerHTML += `
-        <a href="${token? '/frontend/Account/account.html' : '/frontend/SignIn/signIn.html'}" class="nav-item account">
+        <a href="${token? '/LiveLifes/frontend/Account/account.html' : '/LiveLifes/frontend/SignIn/signIn.html'}" class="nav-item account">
                 <i data-lucide="user"></i>
                 ${token? 'Account' : 'Signin/Signup'}
         </a>
     `
+
     lucide.createIcons();
 };
 
