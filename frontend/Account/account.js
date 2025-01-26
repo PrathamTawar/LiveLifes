@@ -31,7 +31,10 @@ getProfile();
 function displayProfile(data){
   usernameDisplay.textContent = data.User.username;
   bioDisplay.textContent = data.User.profile.bio? 'data.User.profile.bio' : 'Bio...';
-  profilePic.src = data.User.profile.profile_pic? url +'/'+ data.User.profile.profile_pic : "/frontend/assets/avatar.jpg";
+  // !TO RUN LOCALLY
+  // profilePic.src = data.User.profile.profile_pic? url +'/'+ data.User.profile.profile_pic : "/frontend/assets/avatar.jpg";
+  // !TO RUN ON PAGES
+  profilePic.src = data.User.profile.profile_pic? url +'/'+ data.User.profile.profile_pic : "/LiveLifes/frontend/assets/avatar.jpg";
 }
 
 function displayPosts(data){
