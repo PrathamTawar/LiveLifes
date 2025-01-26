@@ -15,7 +15,10 @@ const url = "http://127.0.0.1:8000";
 
 signOut.addEventListener("click", async () => {
   localStorage.removeItem("token");
+  // !TO RUN LOCALLY
   window.location.href = "http://127.0.0.1:5500/frontend/SignIn/signIn.html";
+  // !TO RUN ON PAGES
+  window.location.href = "https://prathamtawar.github.io/LiveLifes/frontend/SignIn/signIn.html";
 });
 
 async function getProfile() {
