@@ -2,6 +2,11 @@ const signInForm = document.querySelector("#signIn");
 const signUpForm = document.querySelector("#signUp");
 const errorBox = document.querySelector(".errorBox");
 const url = "http://127.0.0.1:8000/api";
+// !TO RUN LOCALLY
+// const successUrl = "http://127.0.0.1:5500/frontend/Feed/feed.html"
+// !TO RUN ON PAGES
+const successUrl = "https://prathamtawar.github.io/LiveLifes/frontend/Feed/feed.html"
+
 
 function toggleForm(formId) {
   const buttons = document.querySelectorAll(".toggle-btn");
@@ -52,7 +57,7 @@ signUpForm.addEventListener("submit", async (e) => {
 
   if (res.data.success) {
     localStorage.setItem("token", res.data.token);
-    window.location.href = "http://127.0.0.1:5500/frontend/Feed/feed.html";
+    window.location.href = successUrl;
   } else {
     errorBox.classList.add("ifError");
     console.log(res.data);
@@ -78,7 +83,7 @@ signInForm.addEventListener("submit", async (e) => {
 
   if (res.data.success) {
     localStorage.setItem("token", res.data.token);
-    window.location.href = "http://127.0.0.1:5500/frontend/Feed/feed.html";
+    window.location.href = successUrl;
   } else {
     errorBox.classList.add("ifError");
     errorBox.innerHTML = `<h2>${res.data.message}</h2>`;
