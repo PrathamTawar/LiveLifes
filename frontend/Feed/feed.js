@@ -1,6 +1,18 @@
 const feed = document.querySelector('.feed');
+const accountBtn = document.querySelector('.account');
+const signBtn = document.querySelector('.sign');
 const url = 'http://localhost:8000/api';
 let allPosts = [];
+
+window.onload = () => {
+    if(!localStorage.getItem('token')) {
+        window.location.href = '../Account/account.html';
+        accountBtn.classList.add('none')
+    }
+    else{
+        signBtn.classList.add('none')
+    }
+};
 
 async function getPosts() 
 {
@@ -13,24 +25,17 @@ async function getPosts()
 
 function timeCalc(date)
 {
-   
-        // Parse the ISO date string into a Date object
+
     const inputDate = new Date(date);
-
-    // Get the current time
     const now = new Date();
-
-    // Calculate the time difference in milliseconds
     const diff = now.getTime() - inputDate.getTime();
 
-    // Convert the time difference to different units
     const minutes = Math.floor(diff / 60000);
     const hours = Math.floor(minutes / 60);
     const days = Math.floor(hours / 24);
     const months = Math.floor(days / 30);
     const years = Math.floor(months / 12);
 
-    // Return the appropriate "time ago" string
     if (years > 0) return `${years} year${years > 1 ? 's' : ''} ago•${inputDate.getDate()}/${inputDate.getMonth() + 1}/${inputDate.getFullYear()}`;
     if (months > 0) return `${months} month${months > 1 ? 's' : ''} ago•${inputDate.getDate()}/${inputDate.getMonth() + 1}/${inputDate.getFullYear()}`;
     if (days > 0) return `${days} day${days > 1 ? 's' : ''} ago•${inputDate.getDate()}/${inputDate.getMonth() + 1}/${inputDate.getFullYear()}`;
@@ -149,13 +154,3 @@ function handleDelete(btns) {
 
 
 getPosts()
-
-
-
-// Handle menu toggles
-
-
-
-
-
-
