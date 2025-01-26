@@ -5,7 +5,7 @@ let allPosts = [];
 async function getPosts() 
 {
 
-    allPosts = await axios.get(`${url}/getPost/0`);
+    allPosts = await axios.get(`${url}/post/posts`);
     allPosts = allPosts.data;
 
     displayPosts(allPosts.reverse());
@@ -141,7 +141,7 @@ function handleDelete(btns) {
     btns.forEach(btn => {
         btn.addEventListener('click', async (e) => {
             const postId = e.target.getAttribute('data-id');
-            const res = await axios.delete(`${url}/deletePost/${postId}`);
+            const res = await axios.delete(`${url}/post/posts/${postId}`);
             // getPosts();
         });
     })

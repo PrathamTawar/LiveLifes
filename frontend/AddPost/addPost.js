@@ -1,6 +1,6 @@
 const form = document.querySelector('.form-card');
 const fileInput = document.querySelector('#file-upload');
-const url = 'http://localhost:8000/api';
+const url = 'http://localhost:8000/api/post';
 
 fileInput.addEventListener('change', () => {
     const fileName = fileInput.files[0].name;

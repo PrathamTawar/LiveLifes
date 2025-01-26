@@ -155,6 +155,19 @@ body {
     margin-bottom: var(--spacing-lg);
 }
 
+.errorBox
+{
+    display: none;
+    text-align: center;
+    margin-top: 10%;
+    color: red;
+}
+
+.ifError
+{
+    display: block;
+}
+
 #name-inpts
 {
     display: flex;

@@ -1,18 +1,8 @@
 from django.urls import path
-from . import views
+from .views import *
 
 urlpatterns = [
-    path('test', views.test, name='test'),
-    path('getPost/<int:pk>', views.getPost, name='getPost'),
-    path('createPost', views.createPost, name='createPost'),
-    path('updatePost/<int:pk>', views.updatePost, name='createPost'),
-    path('deletePost/<int:pk>', views.deletePost, name='deletePost'),
-    path('users', views.getUser, name='signin'),
-    path('signin', views.signin, name='signin'),
-    path('signup', views.signup, name='signup'),
+    path('test', test, name='test'),
+    path('posts', PostView.as_view(), name='posts'),
+    path('posts/<int:pk>', PostView.as_view(), name='posts'),
 ]
-
-from django.conf import settings
-from django.conf.urls.static import static
-if settings.DEBUG:
-        urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

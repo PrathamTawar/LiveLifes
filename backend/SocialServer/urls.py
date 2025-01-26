@@ -2,7 +2,8 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('api/', include('apiView.urls')),
+    path('api/post/', include('apiView.urls')),
+    path('api/user/', include('userView.urls')),
     path('admin/', admin.site.urls),
 ]
 
