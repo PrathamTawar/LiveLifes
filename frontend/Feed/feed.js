@@ -71,7 +71,8 @@ function displayPosts(data)
         feed.innerHTML += `
         <div class="post">
             <div class="post-header">
-                <img src="${post.owner.profile.profile_pic? url + post.owner.profile.profile_pic : '/frontend/assets/avatar.jpg'}" alt="Profile" class="profile-pic">
+            <img src="${post.owner.profile.profile_pic? url + post.owner.profile.profile_pic : '/frontend/assets/avatar.jpg'}" alt="Profile" class="profile-pic">
+            <img src="${post.owner.profile.profile_pic? url + post.owner.profile.profile_pic : '/LiveLifes/frontend/assets/avatar.jpg'}" alt="Profile" class="profile-pic">
                 <div class="user-info">
                     <div class="username">${post.owner.username}</div>
                     <div class="timestamp">${date}</div>
