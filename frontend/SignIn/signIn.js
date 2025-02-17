@@ -79,8 +79,7 @@ signInForm.addEventListener("submit", async (e) => {
     {
       username: username,
       password: password,
-    },
-    { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
+    }
   );
 
   if (res.data.success) {

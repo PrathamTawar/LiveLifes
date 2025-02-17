@@ -60,15 +60,7 @@ function displayPosts(data){
     }
 
   });
-
-
-
 }
-
-
-
-
-
 
 
 // Open Edit Modal

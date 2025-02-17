@@ -68,7 +68,7 @@ function displayPosts(data)
 {
     feed.innerHTML = '';
     data.forEach(post => {
-        // !ADD IT INSIDE IF RUN LOCALLY
+        // !ADD IT INSIDE IF RUNNING LOCALLY
         // <img src="${post.owner.profile.profile_pic? url + post.owner.profile.profile_pic : '/frontend/assets/avatar.jpg'}" alt="Profile" class="profile-pic">
         let date = timeCalc(post.created_at);
         feed.innerHTML += `
@@ -80,19 +80,7 @@ function displayPosts(data)
                     <div class="timestamp">${date}</div>
                 </div>
             </div>
-            <button class="menu-btn">
-                <i data-lucide="more-vertical"></i>
-            </button>
-            <div class="menu-content">
-                <div data-id=${post.id} class="menu-item edit">
-                    <i data-lucide="edit"></i>
-                    Edit
-                </div>
-                <div data-id=${post.id} class="menu-item delete">
-                    <i data-lucide="trash-2"></i>
-                    Delete
-                </div>
-            </div>
+            
             <div class="post-title">
                 ${post.caption}
             </div>
@@ -101,11 +89,11 @@ function displayPosts(data)
                 ${post.content_text}
             </div>
 
-            <img src="${url}${post.content_image}" alt="Sunset" class="post-image ${post.content_image? '' : 'none'}">
+            <img src="${post.content_image? url+post.content_image : ''}" alt="Sunset" class="post-image ${post.content_image? '' : 'none'}">
 
             <div class="video-container ${post.content_video? '' : 'none'}">
                 <video controls autoplay loop muted>
-                    <source src="${url}${post.content_video}" type="video/mp4">
+                    <source src="${post.content_video? url+post.content_video : ''}" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
 
